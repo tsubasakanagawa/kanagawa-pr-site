@@ -1,0 +1,1448 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enliven Kanagawa｜神奈川デート特化PRサービス</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #2E8B57;
+            --primary-light: #5FAD56;
+            --accent-color: #FF6B35;
+            --accent-light: #ff8259;
+            --dark-text: #333333;
+            --light-text: #666666;
+            --background-light: #f9f9f9;
+            --background-white: #ffffff;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Noto Sans JP', sans-serif;
+            line-height: 1.6;
+            color: var(--dark-text);
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Noto Sans JP', sans-serif;
+            line-height: 1.4;
+            margin-top: 0;
+            color: var(--dark-text);
+        }
+
+        h2 {
+            font-size: 28px;
+            font-weight: 700;
+            margin-bottom: 40px;
+            text-align: center;
+            position: relative;
+            padding-bottom: 15px;
+        }
+
+        h2:after {
+            content: '';
+            position: absolute;
+            width: 60px;
+            height: 3px;
+            background: var(--accent-color);
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .container {
+            max-width: 1140px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+
+        /* Header and Navigation */
+        header {
+            background-color: white;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0;
+        }
+
+        .site-logo {
+            font-size: 20px;
+            font-weight: 700;
+            color: var(--primary-color);
+            text-decoration: none;
+            padding: 15px 0;
+        }
+
+        .navbar ul {
+            display: flex;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            height: 100%;
+        }
+
+        /* Fix for navigation menu alignment */
+        .navbar li {
+            display: flex;
+            align-items: center;
+            height: 100%;
+            white-space: nowrap; /* Prevent line breaks */
+        }
+
+        .navbar a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100%;
+            padding: 20px 10px; /* Adjusted padding for better spacing */
+            color: var(--dark-text);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 14px; /* Smaller font size to fit all items */
+            transition: all 0.3s ease;
+            white-space: nowrap; /* Prevent line breaks */
+        }
+
+        .navbar a:hover, .navbar a.active {
+            color: var(--primary-color);
+        }
+
+        .navbar a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 3px;
+            background: var(--primary-color);
+            bottom: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            transition: width 0.3s ease;
+        }
+
+        .navbar a:hover::after, .navbar a.active::after {
+            width: 80%;
+        }
+
+        .menu-toggle {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            padding: 15px;
+        }
+
+        .menu-toggle span {
+            display: block;
+            width: 25px;
+            height: 3px;
+            background: var(--primary-color);
+            margin: 4px 0;
+            transition: all 0.3s ease;
+        }
+
+        /* Hero Section */
+        .hero {
+            position: relative;
+            min-height: 400px;
+            padding: 40px 0;
+            background: url('https://page1.genspark.site/v1/base64_upload/b5299e4a7516d526e2504d053e6ef501') no-repeat center center;
+            background-size: cover;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.4);
+        }
+
+        .hero-text-box {
+            background: rgba(255, 255, 255, 0.85);
+            padding: 30px;
+            border-radius: 8px;
+            text-align: center;
+            max-width: 600px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero h1 {
+            font-size: 32px;
+            font-weight: 700;
+            margin: 0 0 15px;
+        }
+
+        .hero-subtitle {
+            font-size: 20px;
+            font-weight: 500;
+            margin: 0;
+        }
+
+        /* About Section */
+        .about {
+            background-color: var(--background-light);
+            padding: 80px 0;
+        }
+
+        /* Circular profile image styling */
+        .about-content {
+            display: flex;
+            align-items: center;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .about-image {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%; /* Make image circular */
+            overflow: hidden;
+            margin-right: 40px;
+            flex-shrink: 0;
+        }
+
+        .about-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover; /* Make sure image covers the container */
+            object-position: top; /* Position to show face and upper body */
+        }
+
+        .about-text {
+            flex: 1;
+        }
+
+        .about-text h3 {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+
+        .location {
+            font-size: 16px;
+            color: var(--light-text);
+            margin-bottom: 20px;
+        }
+
+        /* Concerns Section */
+        .concerns {
+            background-color: var(--background-light);
+            padding: 80px 0;
+        }
+
+        .concerns-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+        }
+
+        .concern-card {
+            background: var(--background-white);
+            border-radius: 10px;
+            padding: 30px;
+            width: 300px;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        .concern-icon {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            background: rgba(46, 139, 87, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+        }
+
+        .concern-icon i {
+            font-size: 28px;
+            color: var(--primary-color);
+        }
+
+        .concern-card h3 {
+            font-size: 18px;
+            margin-bottom: 15px;
+            line-height: 1.4;
+        }
+
+        .concern-card p {
+            font-size: 14px;
+            line-height: 1.6;
+            color: var(--light-text);
+        }
+
+        /* Service Section */
+        .service {
+            padding: 80px 0;
+            background-color: var(--background-white);
+        }
+
+        .service-intro {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .highlight-text {
+            font-size: 24px;
+            line-height: 1.6;
+            font-weight: 700;
+            margin: 30px 0;
+            text-align: center;
+            color: var(--dark-text);
+        }
+
+        .service-items {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .service-item {
+            text-align: center;
+            padding: 20px;
+        }
+
+        .service-icon {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            background: rgba(46, 139, 87, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            transition: all 0.3s ease;
+        }
+
+        .service-icon i {
+            font-size: 32px;
+            color: var(--primary-color);
+        }
+
+        .service-item:hover .service-icon {
+            background: var(--primary-color);
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(46, 139, 87, 0.3);
+        }
+
+        .service-item:hover .service-icon i {
+            color: white;
+        }
+
+        /* Case Study Section */
+        .case {
+            background-color: var(--background-light);
+            padding: 80px 0;
+        }
+
+        .case-items {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .case-item {
+            background: var(--background-white);
+            border-radius: 8px;
+            padding: 30px;
+            margin-bottom: 40px;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+        }
+
+        .case-item h3 {
+            font-size: 20px;
+            margin-bottom: 15px;
+            color: var(--primary-color);
+        }
+
+        .case-result {
+            margin-bottom: 10px;
+            line-height: 1.8;
+        }
+
+        .case-note {
+            font-size: 14px;
+            color: var(--light-text);
+            margin-top: 15px;
+            font-style: italic;
+        }
+
+        /* Media Section */
+        .media {
+            padding: 80px 0;
+            background-color: var(--background-white);
+        }
+
+        .stats-title {
+            text-align: left;
+            font-size: 20px;
+            font-weight: 600;
+            margin-bottom: 30px;
+            padding-left: 20px;
+            border-left: 4px solid var(--accent-color);
+        }
+
+        .sns-cards {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+            justify-content: center;
+        }
+
+        .sns-card {
+            background: white;
+            border-radius: 10px;
+            padding: 30px;
+            text-align: center;
+            width: 300px;
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.05);
+        }
+
+        .sns-icon {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+        }
+
+        .instagram-icon {
+            background: linear-gradient(45deg, #FCAF45, #FD1D1D, #C837AB, #833AB4);
+        }
+
+        .tiktok-icon {
+            background: #000;
+        }
+
+        .sns-icon i {
+            font-size: 35px;
+            color: white;
+        }
+
+        .sns-card h4 {
+            font-size: 20px;
+            margin-bottom: 10px;
+        }
+
+        .follower-count {
+            font-weight: 700;
+            font-size: 18px;
+            margin-bottom: 5px;
+        }
+
+        .account-name {
+            color: #666;
+            margin-bottom: 20px;
+        }
+
+        .profile-button {
+            display: inline-block;
+            padding: 10px 20px;
+            border-radius: 20px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .instagram-button {
+            background: linear-gradient(45deg, #FCAF45, #FD1D1D, #C837AB, #833AB4);
+            color: white;
+        }
+
+        .tiktok-button {
+            background: #000;
+            color: white;
+        }
+
+        .profile-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Follower attributes graph */
+        .attribute-bars {
+            margin-top: 30px;
+        }
+
+        .attribute-item {
+            margin-bottom: 20px;
+        }
+
+        .attribute-label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: 600;
+        }
+
+        .attribute-bar {
+            height: 30px;
+            background: #f0f0f0;
+            border-radius: 15px;
+            overflow: hidden;
+        }
+
+        .bar-fill {
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            padding-right: 15px;
+            color: white;
+            font-weight: 600;
+            transition: width 1.5s ease;
+        }
+
+        .bar-fill.kanagawa {
+            background-color: var(--primary-color);
+        }
+
+        .bar-fill.tokyo {
+            background-color: #1E88E5;
+        }
+
+        .bar-fill.other {
+            background-color: #9E9E9E;
+        }
+
+        /* Plan Section */
+        .plan {
+            background-color: var(--background-light);
+            padding: 80px 0;
+        }
+
+        .plan-cards {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 30px;
+        }
+
+        .plan-card {
+            background: var(--background-white);
+            border-radius: 10px;
+            padding: 40px;
+            width: 350px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        .plan-card h3 {
+            font-size: 24px;
+            margin-bottom: 20px;
+            color: var(--primary-color);
+        }
+
+        .plan-price {
+            font-size: 28px;
+            font-weight: 700;
+            margin-bottom: 30px;
+            color: var(--dark-text);
+        }
+
+        .plan-price span {
+            font-size: 16px;
+            font-weight: 400;
+            color: var(--light-text);
+        }
+
+        .plan-features {
+            margin-bottom: 30px;
+        }
+
+        .plan-feature {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 15px;
+            text-align: left;
+        }
+
+        .plan-feature i {
+            color: var(--primary-color);
+            margin-right: 10px;
+            font-size: 16px;
+            margin-top: 4px;
+        }
+
+        /* Flow Section */
+        .flow {
+            padding: 80px 0;
+            background-color: var(--background-white);
+        }
+
+        .flow-steps {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .flow-step {
+            display: flex;
+            margin-bottom: 30px;
+            position: relative;
+        }
+
+        .flow-step:not(:last-child)::after {
+            content: '';
+            position: absolute;
+            top: 50px;
+            left: 25px;
+            width: 2px;
+            height: calc(100% + 30px);
+            background: #e0e0e0;
+            z-index: 1;
+        }
+
+        .step-number {
+            width: 50px;
+            height: 50px;
+            background: var(--primary-color);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 20px;
+            margin-right: 20px;
+            z-index: 2;
+        }
+
+        .step-content {
+            flex: 1;
+            background: white;
+            padding: 20px 25px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+        }
+
+        .step-content h3 {
+            margin-bottom: 10px;
+            font-size: 18px;
+        }
+
+        .step-content p {
+            margin: 0;
+            color: var(--light-text);
+        }
+
+        /* FAQ Section */
+        .faq {
+            padding: 80px 0;
+            background-color: var(--background-light);
+        }
+
+        .faq-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            background: var(--background-white);
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+        }
+
+        .faq-question h3 {
+            font-size: 18px;
+            margin-bottom: 15px;
+            color: var(--primary-color);
+        }
+
+        .faq-answer {
+            color: var(--dark-text);
+        }
+
+        /* Contact Section */
+        .contact {
+            padding: 80px 0;
+            background-color: var(--background-white);
+        }
+
+        .contact-intro {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .contact-form {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .form-group {
+            margin-bottom: 25px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 16px;
+            transition: all 0.3s ease;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 2px rgba(46, 139, 87, 0.2);
+            outline: none;
+        }
+
+        .required {
+            color: #e74c3c;
+        }
+
+        .error-message {
+            color: #e74c3c;
+            font-size: 14px;
+            margin-top: 5px;
+            display: none;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: var(--accent-color);
+            color: white;
+            padding: 15px 30px;
+            border-radius: 50px;
+            font-size: 18px;
+            font-weight: 700;
+            text-decoration: none;
+            text-align: center;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 4px 10px rgba(255, 107, 53, 0.3);
+        }
+
+        .cta-button:hover {
+            background: var(--accent-light);
+            transform: translateY(-3px);
+            box-shadow: 0 6px 15px rgba(255, 107, 53, 0.4);
+        }
+
+        /* Thank You Message */
+        .thanks-message {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .thanks-message.show {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .thanks-content {
+            background: var(--background-white);
+            padding: 40px;
+            border-radius: 10px;
+            text-align: center;
+            max-width: 500px;
+            position: relative;
+        }
+
+        .close-btn {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            font-size: 24px;
+            cursor: pointer;
+        }
+
+        .thanks-content i {
+            font-size: 60px;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #222;
+            color: white;
+            padding: 30px 0;
+            text-align: center;
+        }
+
+        .footer-content {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .footer-logo {
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 15px;
+        }
+
+        .footer-text {
+            font-size: 14px;
+            color: #ccc;
+        }
+
+        /* Floating CTA */
+        .floating-cta {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            z-index: 999;
+        }
+
+        /* Media Queries */
+        @media (max-width: 768px) {
+            .menu-toggle {
+                display: flex;
+            }
+
+            .navbar ul {
+                position: fixed;
+                top: 0;
+                right: -100%;
+                width: 80%;
+                height: 100vh;
+                background: white;
+                flex-direction: column;
+                justify-content: flex-start;
+                align-items: flex-start;
+                padding: 80px 20px 20px;
+                transition: right 0.3s ease;
+                z-index: 100;
+                box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
+            }
+
+            .navbar.active ul {
+                right: 0;
+            }
+
+            .navbar li {
+                margin: 10px 0;
+                width: 100%;
+                height: auto;
+            }
+
+            .navbar a {
+                padding: 10px;
+                width: 100%;
+                justify-content: flex-start;
+            }
+
+            .hero {
+                min-height: 350px;
+                padding: 30px 0;
+            }
+
+            .hero-text-box {
+                width: 90%;
+                padding: 20px;
+            }
+
+            .hero h1 {
+                font-size: 28px;
+            }
+
+            .hero-subtitle {
+                font-size: 16px;
+            }
+
+            .about-content {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .about-image {
+                margin: 0 auto 30px;
+            }
+
+            .concerns-container {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .concern-card {
+                width: 100%;
+                max-width: 320px;
+            }
+
+            .service-items {
+                grid-template-columns: 1fr;
+            }
+
+            .sns-cards {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .sns-card {
+                width: 100%;
+                max-width: 300px;
+                margin-bottom: 20px;
+            }
+
+            .plan-card {
+                width: 100%;
+                max-width: 320px;
+            }
+
+            .flow-step {
+                flex-direction: column;
+            }
+
+            .flow-step:not(:last-child)::after {
+                left: 25px;
+                top: 50px;
+                height: calc(100% - 30px);
+            }
+
+            .step-number {
+                margin-bottom: 15px;
+            }
+
+            .floating-cta {
+                bottom: 20px;
+                right: 20px;
+            }
+
+            .cta-button {
+                padding: 12px 25px;
+                font-size: 16px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <nav class="navbar" id="navbar">
+                <a href="#" class="site-logo">Enliven Kanagawa</a>
+                <div class="menu-toggle" id="menu-toggle">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+                <ul>
+                    <li><a href="#hero" class="active">ホーム</a></li>
+                    <li><a href="#about">自己紹介</a></li>
+                    <li><a href="#concerns">よくあるお悩み</a></li>
+                    <li><a href="#service">サービス概要</a></li>
+                    <li><a href="#case">PR実績</a></li>
+                    <li><a href="#media">運営メディア</a></li>
+                    <li><a href="#plan">各種プラン</a></li>
+                    <li><a href="#flow">PR動画フロー</a></li>
+                    <li><a href="#faq">よくある質問</a></li>
+                    <li><a href="#contact">お問い合わせはこちら</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section id="hero" class="hero">
+        <div class="hero-overlay"></div>
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-text-box">
+                    <h1>Enliven Kanagawa</h1>
+                    <p class="hero-subtitle">神奈川デート専門PRサービス</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="about">
+        <div class="container">
+            <h2>自己紹介</h2>
+            <div class="about-content">
+                <div class="about-image">
+                    <img src="https://page1.genspark.site/v1/base64_upload/0076fab901ac86a479a002c05127114d" alt="篠塚翼">
+                </div>
+                <div class="about-text">
+                    <h3>篠塚 翼</h3>
+                    <p class="location">所在地: 神奈川県</p>
+                    <p>神奈川の隠れた魅力を他県に伝えたい一心で地元の飲食店や特別な場所をTikTokで紹介し始めました。この活動を通じて、神奈川全体を盛り上げ、1人でも多くの人に神奈川の魅力を知ってほしいです！</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="concerns" class="concerns">
+        <div class="container">
+            <h2>こんなお悩みありませんか？</h2>
+            
+            <div class="concerns-container">
+                <div class="concern-card">
+                    <div class="concern-icon">
+                        <i class="fas fa-question"></i>
+                    </div>
+                    <h3>自分のお店を魅力的に魅せる方法がわからない</h3>
+                    <p>「どんな写真や動画が効果的なの？」「どうすれば若い世代に届くの？」そんな疑問を抱えているオーナー様に、最適な表現方法をご提案します。</p>
+                </div>
+                
+                <div class="concern-card">
+                    <div class="concern-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3>若者が来てくれず集客に困っている</h3>
+                    <p>「若い世代に知ってほしいのに届かない…」「インスタ世代の取り込みが課題」という店舗様に、Z世代・ミレニアル世代への効果的なアプローチを。</p>
+                </div>
+                
+                <div class="concern-card">
+                    <div class="concern-icon">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                    <h3>SNS運用に時間が取れない</h3>
+                    <p>「毎日の業務に追われて、SNS更新まで手が回らない」「何を投稿すればいいかわからなくて、結局後回しに…」そんな忙しい店舗オーナー様の悩みを解決します。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="service" class="service">
+        <div class="container">
+            <h2>サービス概要</h2>
+            
+            <div class="service-intro">
+                <p class="highlight-text">集客の課題「神奈川デートにオススメ」という切り口から解決します！</p>
+            </div>
+            
+            <div class="service-items">
+                <div class="service-item">
+                    <div class="service-icon">
+                        <i class="fas fa-store"></i>
+                    </div>
+                    <h3>飲食店</h3>
+                    <p>神奈川の飲食店の魅力を動画で発信。SNSを通じて新たな顧客層にリーチします。</p>
+                </div>
+                
+                <div class="service-item">
+                    <div class="service-icon">
+                        <i class="fas fa-coffee"></i>
+                    </div>
+                    <h3>カフェ</h3>
+                    <p>SNS映えするカフェの雰囲気や特徴的なメニューを魅力的に紹介します。</p>
+                </div>
+                
+                <div class="service-item">
+                    <div class="service-icon">
+                        <i class="fas fa-umbrella-beach"></i>
+                    </div>
+                    <h3>レジャー</h3>
+                    <p>神奈川の観光スポットやレジャー施設の楽しみ方を若者目線で発信します。</p>
+                </div>
+                
+                <div class="service-item">
+                    <div class="service-icon">
+                        <i class="fas fa-hotel"></i>
+                    </div>
+                    <h3>ホテル</h3>
+                    <p>宿泊施設の魅力や特徴を若い世代に響く切り口で紹介し、新規顧客の獲得を支援します。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="case" class="case">
+        <div class="container">
+            <h2>PR実績</h2>
+            
+            <div class="case-items">
+                <div class="case-item">
+                    <h3>湯河原町</h3>
+                    <p class="case-result">「神奈川遊び1日プラン」というキャッチコピーで合計150万再生を獲得。Instagram及びTikTokへの投稿、ストーリーを活用し、地域の認知拡大に貢献しました。効果測定のための振り返りMTGも実施し、PR効果を最大化しています。</p>
+                </div>
+                
+                <div class="case-item">
+                    <h3>飲食店A</h3>
+                    <p class="case-result">「SNSを見て来ました！」という来店が多数あり、50万回以上の再生を記録しました。店舗の特徴や雰囲気、人気メニューなどを若者向けに魅力的に発信することで、新規顧客の獲得に成功しました。</p>
+                    <p class="case-note">※契約の都合上匿名での記載となります</p>
+                </div>
+                
+                <div class="case-item">
+                    <h3>宿泊施設B</h3>
+                    <p class="case-result">地元への認知拡大に成功し、50万回以上の再生を達成しました。施設の魅力や周辺観光スポットとの連携を紹介することで、問い合わせ数が増加し、予約率向上にも貢献してくれました。</p>
+                    <p class="case-note">※契約の都合上匿名での記載となります</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="media" class="media">
+        <div class="container">
+            <h2>運営しているアカウント</h2>
+            
+            <div class="sns-stats">
+                <h3 class="stats-title">月間アクセス35万、直近3ヶ月累計100万アクセス</h3>
+                <div class="sns-cards">
+                    <div class="sns-card">
+                        <div class="sns-icon instagram-icon">
+                            <i class="fab fa-instagram"></i>
+                        </div>
+                        <h4>Instagram</h4>
+                        <p class="follower-count">2.7万フォロワー</p>
+                        <p class="account-name">@tsubasa_shinozuka</p>
+                        <a href="https://www.instagram.com/tsubasa_shinozuka/?locale=ja_JP" class="profile-button instagram-button" target="_blank">プロフィールを見る</a>
+                    </div>
+                    <div class="sns-card">
+                        <div class="sns-icon tiktok-icon">
+                            <i class="fab fa-tiktok"></i>
+                        </div>
+                        <h4>TikTok</h4>
+                        <p class="follower-count">10万フォロワー</p>
+                        <p class="account-name">@tsubasa_shinozuka</p>
+                        <a href="https://www.tiktok.com/@tsubasa_shinozuka" class="profile-button tiktok-button" target="_blank">プロフィールを見る</a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="follower-attributes">
+                <h3>フォロワー属性</h3>
+                <div class="attribute-bars">
+                    <div class="attribute-item">
+                        <span class="attribute-label">神奈川</span>
+                        <div class="attribute-bar">
+                            <div class="bar-fill kanagawa" style="width: 80%;">
+                                <span class="bar-percentage">80%</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="attribute-item">
+                        <span class="attribute-label">東京</span>
+                        <div class="attribute-bar">
+                            <div class="bar-fill tokyo" style="width: 15%;">
+                                <span class="bar-percentage">15%</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="attribute-item">
+                        <span class="attribute-label">その他地域</span>
+                        <div class="attribute-bar">
+                            <div class="bar-fill other" style="width: 5%;">
+                                <span class="bar-percentage">5%</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="plan" class="plan">
+        <div class="container">
+            <h2>各種プラン</h2>
+            <div class="plan-cards">
+                <div class="plan-card">
+                    <h3>スタンダードプラン</h3>
+                    <div class="plan-price">¥80,000<span>（税別）</span></div>
+                    <div class="plan-features">
+                        <div class="plan-feature">
+                            <i class="fas fa-check"></i>
+                            <p>想定PV数：5万～50万PV</p>
+                        </div>
+                        <div class="plan-feature">
+                            <i class="fas fa-check"></i>
+                            <p>Instagram＆TikTokでの動画投稿</p>
+                        </div>
+                        <div class="plan-feature">
+                            <i class="fas fa-check"></i>
+                            <p>ストーリーズでのPR</p>
+                        </div>
+                        <div class="plan-feature">
+                            <i class="fas fa-check"></i>
+                            <p>動画企画書提出</p>
+                        </div>
+                        <div class="plan-feature">
+                            <i class="fas fa-check"></i>
+                            <p>オンラインMTG1回</p>
+                        </div>
+                    </div>
+                    <a href="#contact" class="cta-button">お問い合わせ</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="flow" class="flow">
+        <div class="container">
+            <h2>PR動画作成・発注フロー</h2>
+            <div class="flow-steps">
+                <div class="flow-step">
+                    <div class="step-number">1</div>
+                    <div class="step-content">
+                        <h3>ターゲットや要望のヒアリング</h3>
+                        <p>オンラインor対面でご要望をお伺いします</p>
+                    </div>
+                </div>
+                <div class="flow-step">
+                    <div class="step-number">2</div>
+                    <div class="step-content">
+                        <h3>企画台本のPDF提出</h3>
+                        <p>撮影内容の企画を提案します</p>
+                    </div>
+                </div>
+                <div class="flow-step">
+                    <div class="step-number">3</div>
+                    <div class="step-content">
+                        <h3>撮影・編集</h3>
+                        <p>撮影日から1週間以内に初稿提出</p>
+                    </div>
+                </div>
+                <div class="flow-step">
+                    <div class="step-number">4</div>
+                    <div class="step-content">
+                        <h3>納品</h3>
+                        <p>MP4形式で動画を納品します</p>
+                    </div>
+                </div>
+                <div class="flow-step">
+                    <div class="step-number">5</div>
+                    <div class="step-content">
+                        <h3>公開</h3>
+                        <p>ツバサの公式SNSで公開します</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="faq" class="faq">
+        <div class="container">
+            <h2>よくある質問</h2>
+            
+            <div class="faq-container">
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>Q: 5万PV未満の場合はどうなりますか？</h3>
+                    </div>
+                    <div class="faq-answer">
+                        <p>A: 投稿を増やし、必ず達成します。</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>Q: 撮影経費/宿泊費/飲食費は？</h3>
+                    </div>
+                    <div class="faq-answer">
+                        <p>A: クライアント様負担となります。</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>Q: 2次利用費は？</h3>
+                    </div>
+                    <div class="faq-answer">
+                        <p>A: 1か月あたり3万円（税別）です。</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2>お問い合わせはこちら</h2>
+            
+            <p class="contact-intro">PR依頼や詳細についてのお問い合わせはこちらからお願いいたします。<br>折り返し24時間以内にご連絡いたします。</p>
+            
+            <div class="contact-form">
+                <form id="contactForm" onsubmit="return validateForm()">
+                    <div class="form-group">
+                        <label for="name">お名前 <span class="required">*</span></label>
+                        <input type="text" id="name" name="name" required>
+                        <div class="error-message" id="nameError"></div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="email">メールアドレス <span class="required">*</span></label>
+                        <input type="email" id="email" name="email" required>
+                        <div class="error-message" id="emailError"></div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="company">会社名・店舗名 <span class="required">*</span></label>
+                        <input type="text" id="company" name="company" required>
+                        <div class="error-message" id="companyError"></div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="message">お問い合わせ内容 <span class="required">*</span></label>
+                        <textarea id="message" name="message" rows="5" required></textarea>
+                        <div class="error-message" id="messageError"></div>
+                    </div>
+                    
+                    <button type="submit" class="cta-button">送信する</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <div id="thanksMessage" class="thanks-message">
+        <div class="thanks-content">
+            <div class="close-btn" onclick="hideThanksMessage()">×</div>
+            <i class="fas fa-check-circle"></i>
+            <h3>お問い合わせありがとうございます</h3>
+            <p>内容を確認のうえ、24時間以内にご返信いたします。</p>
+            <button class="cta-button" onclick="hideThanksMessage()">閉じる</button>
+        </div>
+    </div>
+
+    <div class="floating-cta">
+        <a href="#contact" class="cta-button">お問い合わせはこちら</a>
+    </div>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">Enliven Kanagawa</div>
+                <p class="footer-text">&copy; 2025 Enliven Kanagawa. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // ハンバーガーメニューの機能
+        document.addEventListener('DOMContentLoaded', function() {
+            const menuToggle = document.getElementById('menu-toggle');
+            const navbar = document.getElementById('navbar');
+            
+            menuToggle.addEventListener('click', function() {
+                navbar.classList.toggle('active');
+            });
+            
+            // スクロール時のナビゲーションハイライト
+            const sections = document.querySelectorAll('section');
+            const navItems = document.querySelectorAll('.navbar a');
+            
+            window.addEventListener('scroll', function() {
+                let current = '';
+                
+                sections.forEach(section => {
+                    const sectionTop = section.offsetTop;
+                    const sectionHeight = section.clientHeight;
+                    if(pageYOffset >= (sectionTop - 150)) {
+                        current = section.getAttribute('id');
+                    }
+                });
+                
+                navItems.forEach(item => {
+                    item.classList.remove('active');
+                    if(item.getAttribute('href').substring(1) === current) {
+                        item.classList.add('active');
+                    }
+                });
+            });
+        });
+        
+        // フォームバリデーションとサンクスメッセージ
+        function validateForm() {
+            let isValid = true;
+            const name = document.getElementById('name');
+            const email = document.getElementById('email');
+            const company = document.getElementById('company');
+            const message = document.getElementById('message');
+            
+            // 名前のバリデーション
+            if (name.value.trim() === '') {
+                document.getElementById('nameError').textContent = 'お名前を入力してください';
+                document.getElementById('nameError').style.display = 'block';
+                name.classList.add('error');
+                isValid = false;
+            } else {
+                document.getElementById('nameError').style.display = 'none';
+                name.classList.remove('error');
+            }
+            
+            // メールのバリデーション
+            if (email.value.trim() === '') {
+                document.getElementById('emailError').textContent = 'メールアドレスを入力してください';
+                document.getElementById('emailError').style.display = 'block';
+                email.classList.add('error');
+                isValid = false;
+            } else {
+                document.getElementById('emailError').style.display = 'none';
+                email.classList.remove('error');
+            }
+            
+            // 会社名のバリデーション
+            if (company.value.trim() === '') {
+                document.getElementById('companyError').textContent = '会社名・店舗名を入力してください';
+                document.getElementById('companyError').style.display = 'block';
+                company.classList.add('error');
+                isValid = false;
+            } else {
+                document.getElementById('companyError').style.display = 'none';
+                company.classList.remove('error');
+            }
+            
+            // お問い合わせ内容のバリデーション
+            if (message.value.trim() === '') {
+                document.getElementById('messageError').textContent = 'お問い合わせ内容を入力してください';
+                document.getElementById('messageError').style.display = 'block';
+                message.classList.add('error');
+                isValid = false;
+            } else {
+                document.getElementById('messageError').style.display = 'none';
+                message.classList.remove('error');
+            }
+            
+            // バリデーション成功時
+            if (isValid) {
+                showThanksMessage();
+                document.getElementById('contactForm').reset();
+            }
+            
+            return false; // フォーム送信をキャンセル
+        }
+        
+        function showThanksMessage() {
+            document.getElementById('thanksMessage').classList.add('show');
+            document.body.style.overflow = 'hidden';
+        }
+        
+        function hideThanksMessage() {
+            document.getElementById('thanksMessage').classList.remove('show');
+            document.body.style.overflow = 'auto';
+        }
+    </script>
+</body>
+</html>
