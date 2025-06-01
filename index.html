@@ -831,7 +831,7 @@
         }
 
         /* Media Queries */
-   @media (max-width: 768px) {
+  @media (max-width: 768px) {
     .menu-toggle {
         display: flex;
     }
@@ -927,16 +927,18 @@
 
     .flow-step {
         flex-direction: column;
+        position: relative;
     }
 
     .flow-step:not(:last-child)::after {
         left: 25px;
-        top: 50px;
-        height: calc(100% - 30px);
+        top: 60px;
+        height: calc(100% - 50px);
     }
 
     .step-number {
         margin-bottom: 15px;
+        z-index: 2;
     }
 
     .floating-cta {
@@ -949,7 +951,6 @@
         font-size: 16px;
     }
 }
-
     </style>
 </head>
 <body>
